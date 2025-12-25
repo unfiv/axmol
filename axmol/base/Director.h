@@ -148,6 +148,22 @@ public:
     ~Director();
     bool init();
 
+    //-----------------------------------------------------------------
+	// thread-safe global game update
+	struct UpdateCallback
+	{
+		virtual void OnUpdate(float delta) = 0;
+	};
+
+	struct UpdateCallbackDummy: public UpdateCallback
+	{
+		virtual void OnUpdate(float delta) {}
+	};
+
+	UpdateCallback*		m_updateCallback;
+	UpdateCallbackDummy	m_updateCallbackDummy;
+	//-----------------------------------------------------------------
+
     // attribute
 
     /** Gets the current running Scene. Director can only run one Scene at a time. */

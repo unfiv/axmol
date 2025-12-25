@@ -127,7 +127,7 @@ void Director::destroyInstance()
     AX_SAFE_DELETE(s_SharedDirector);
 }
 
-Director::Director() {}
+Director::Director(): m_updateCallback(nullptr) {}
 
 bool Director::init()
 {
@@ -195,6 +195,8 @@ bool Director::init()
 
     _eventDispatcher->addEventListenerWithFixedPriority(_rendererRecreatedListener, -2);
 #endif
+
+    m_updateCallback = &m_updateCallbackDummy;
 
     return true;
 }
@@ -309,6 +311,8 @@ void Director::drawScene()
 
     // calculate "global" dt
     calculateDeltaTime();
+
+    m_updateCallback->OnUpdate(_deltaTime);
 
     if (_renderView)
     {
