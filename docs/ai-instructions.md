@@ -3,7 +3,7 @@
 This document provides system-level rules and context for AI coding assistants, LLMs, and agentic workflows (e.g., Cursor, Copilot, Claude, Windsurf, Aider) interacting with the Axmol Engine codebase.
 
 > **Scope:** Unless stated otherwise, all instructions in this document apply to the stable **`release/2.x`** branch (current LTS branch).
-> Sections specific to the **`dev/v3`** development branch are explicitly marked with the **[v3]** tag.
+> Sections specific to the **`dev`** development branch are explicitly marked with the **[v3]** tag.
 
 ---
 
@@ -18,7 +18,7 @@ This document provides system-level rules and context for AI coding assistants, 
 ### release/2.x (stable)
 - **Standard:** Implement features using clean **C++17/C++20** standards. Leverage `auto`, `nullptr`, `override`, `constexpr`, and structured bindings where appropriate.
 
-### [v3] dev/v3
+### [v3] dev
 - **Standard:** The v3 branch targets **C++23**. Use C++23 features freely (e.g., `std::expected`, `if consteval`, deducing `this`).
 
 ### Two-Stage Initialization (both branches)
@@ -70,5 +70,5 @@ If the Axmol CLI environment is active, use the following entry points:
 | Android | `axmol build -p android` |
 
 ### [v3] Additional Build Notes
-- The v3 branch introduces experimental **Direct3D 12** and **Vulkan** RHI backends. To test them, refer to the [About-RHI-in-axmol-v3](https://github.com/axmolengine/axmol/wiki/About-RHI-in-axmol-v3) wiki page.
+- The v3 branch introduces experimental **Direct3D 11**, **Direct3D 12** and **Vulkan** RHI backends. To test them, refer to the [About-RHI-in-axmol-v3](https://github.com/axmolengine/axmol/wiki/About-RHI-in-axmol-v3) wiki page.
 - arm64 builds for Linux and Windows are available starting from v3.
